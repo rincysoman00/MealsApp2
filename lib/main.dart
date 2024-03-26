@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:flutter/asset_manifest.dart';
-import 'package:mealsapp2/screens/tabs.dart';
+import 'package:mealsapp2/screens/tabs_screen.dart';
+
+// import 'package:mealsapp2/provider/filters_provider.dart';
+
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -13,7 +17,11 @@ final theme = ThemeData(
 );
 
 void main() {
-  runApp(const App());
+  runApp(
+    const ProviderScope( // Wrap MaterialApp with ProviderScope
+      child: App(),
+    ),
+  );
 }
 
 class App extends StatelessWidget {
